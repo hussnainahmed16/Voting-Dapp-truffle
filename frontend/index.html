@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SimplePoll dApp - Truffle & Ganache</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>🗳️ SimplePoll Voting dApp</h1>
+    <p class="subtitle">Local Blockchain Deployment via <strong>Truffle & Ganache</strong></p>
+
+    <button id="connectBtn" class="btn primary-btn" onclick="connectWallet()">🔗 Connect MetaMask (Ganache)</button>
+    <p id="walletAddress" class="wallet-info">Not connected</p>
+    <p class="contract-info">Contract: <code>0xD1687f1f34cA0d2a6c3Fc325a9EE96Ec028a249b</code></p>
+    <hr>
+
+    <div id="pollSection">
+      <div class="status-bar">
+        <span><strong>Poll Round:</strong> <span id="roundNumber">1</span></span>
+        <span><strong>Your Status:</strong> <span id="voterStatus">Connect wallet</span></span>
+      </div>
+
+      <div class="candidates-grid">
+        <div class="card">
+          <h3>Candidate 1</h3>
+          <div class="vote-count" id="cand1Votes">0</div>
+          <button class="btn vote-btn" onclick="castVote(1)">Vote Candidate 1</button>
+        </div>
+
+        <div class="card">
+          <h3>Candidate 2</h3>
+          <div class="vote-count" id="cand2Votes">0</div>
+          <button class="btn vote-btn" onclick="castVote(2)">Vote Candidate 2</button>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn secondary-btn" onclick="loadPollData()">🔄 Refresh Totals</button>
+        <button class="btn danger-btn" onclick="resetPollRound()">⚠️ Reset Poll (New Round)</button>
+      </div>
+
+      <p id="txStatus"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
